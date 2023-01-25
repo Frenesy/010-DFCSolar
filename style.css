@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Fira Sans Extra Condensed', sans-serif;
 }
 
@@ -130,6 +131,7 @@ h1 {
 
 #menu_site nav ul li a {
     color: white;
+    font-size: calc(.5em + 1vw);
     transition: .5s;
     text-decoration: none;
 }
@@ -142,6 +144,7 @@ h1 {
     padding: 15px 40px;
     border: none;
     color: white;
+    font-size: calc(.5em + 1vw);
     cursor: pointer;
     background-color: var(--btn-color);
     transition: .5s;
@@ -161,7 +164,8 @@ h1 {
 #main_top_content {
     position: absolute;
     margin-top: -50px;
-    height: 700px;
+    height: 65vh;
+    min-height: 700px;
     width: 100%;
     background-color: var(--main-color);
     transform: skewY(-3deg);
@@ -172,9 +176,10 @@ h1 {
 
 #main_top_content img {
     z-index: -1;
+    width: 100%;
+    height: 120%;
     opacity: 0.1;
     margin-top: -90px;
-    object-fit: cover;
 }
 
 #content_main_top {
@@ -186,12 +191,14 @@ h1 {
 
 #content_main_top img {
     width: 40%;
+    max-width: 550px;
     margin-left: 50px;
     margin-top: 150px;
 }
 
 #text_content_main_top {
     color: white;
+    font-size: calc(.6em + 1vw);
     padding: 20px;
     margin: 20px;
 }
@@ -202,24 +209,27 @@ h1 {
 }
 
 
+
 /* BANCOS PARCEIROS */
 .box_content {
     display: flex;
     justify-content: space-evenly;
-    margin: 50px;
+    height: 95px;
+    margin: 100px 50px 50px 50px;
     color: rgb(80, 80, 80);
 }
 
 .box_content .col_content {
     width: 30%;
-}
-
-.box_content h1 {
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .box_content h4 {
     color: rgb(151, 151, 151);
+    text-align: center;
 }
 
 #box_shadow {
@@ -227,7 +237,7 @@ h1 {
     background-color: white;
     margin-top: -30px;
     height: 380px;
-    width: 400px;
+    max-width: 400px;
     border-radius: 5px;
     box-shadow: 1px 1px 10px rgb(160, 160, 160);
 
@@ -235,47 +245,54 @@ h1 {
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: 100px 100px 100px;
+    grid-template-columns: repeat(3, 25%);
     gap: 15px;
-    padding: 20px;
+}
+
+#box_shadow .bank_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #box_shadow .bank_icon img {
-    width: 80px;
+    width: 70%;
 }
 
 /* PROVA SOCIAL */
 #servicos_content {
     margin-top: 100px;
     height: 700px;
+    max-height: 700px;
     width: 100%;
     background-color: rgb(26, 20, 78);
     transform: skewY(-3deg);
     overflow: hidden;
-
-    z-index: 0;
 }
 
 #servicos_content img {
-    z-index: -1;
-    opacity: 0.05;
+    opacity: 0.07;
+    width: 100%;
+    height: 120%;
     margin-top: -90px;
-    object-fit: cover;
+}
+
+#servicos {
+    display: flex;
+    justify-content: center;
 }
 
 #grid_social {
     position: absolute;
-    margin-top: -500px;
+    margin-top: 200px;
     display: grid;
     justify-content: center;
-    grid-template-columns: 30% 30% 30%;
+    grid-template-columns: repeat(3, 30%);
     gap: 15px;
     row-gap: 25px;
 
     width: 100%;
-    height: 400px;
-
-    z-index: 2;
+    max-width: 1400px;
 }
 
 .box_item_grid {
@@ -294,7 +311,7 @@ h1 {
 
 .box_item_grid p {
     height: 90px;
-    font-size: calc(0.5rem + 1vw);
+    font-size: calc(0.7rem + .7vw);
 }
 
 
@@ -399,7 +416,7 @@ h1 {
     position: absolute;
     bottom: 10px;
     padding: 50px;
-    font-size: calc(0.6rem + 1vw);
+    font-size: calc(0.6rem + .6vw);
     color: white;
 }
 
@@ -482,9 +499,15 @@ footer img {
 }
 
 
+@media (min-width: 1920px){
+    #content_main_top img {
+        width: 30%;
+    }
+}
+
 @media (max-width: 1100px){
-    .box_content .col_content {
-        margin-left: -100px;
+    #text_content_main_top {
+        margin-top: 50px;
     }
 }
 
@@ -510,6 +533,13 @@ footer img {
     }
 }
 
+@media (max-width: 980px){
+    .box_content .col_content h4 {
+        margin-top: 10px;
+        text-align: start;
+    }
+}
+
 @media (max-width: 900px){
     #menu_site, #menu_btn, #toggle_menu {
         display: none;
@@ -517,10 +547,6 @@ footer img {
 
     #menu-button {
         display: block;
-    }
-
-    .box_content .col_content {
-        margin-left: -150px;
     }
 
     #orcamento form {
@@ -546,8 +572,16 @@ footer img {
         flex-direction: column;
     }
 
+    .box_content {
+        margin: 50px 0px 50px 0px;
+    }
+
+    #text_content_main_top {
+        margin-top: -20px;
+    }
+
     #content_main_top img {
-        margin-top: 100px;
+        margin-top: 50px;
         margin-left: 0px;
         margin-bottom: 20px;
     }
@@ -556,28 +590,23 @@ footer img {
         padding: 10px;
     }
 
-    .box_content .col_content {
-        margin-left: -250px;
-    }
-
     #orcamento form {
         width: 70%;
     }
 }
 
 @media (max-width: 750px){    
-    .box_content .col_content {
-        margin-left: -200px;
+    #box_shadow {
+        margin-right: 10px;
     }
 
-    #box_shadow {
-        margin-right: 100px;
-        grid-template-columns: 100px 100px;
-        width: 320px;
+    .box_content .col_content {
+        width: 50%;
+        align-items: flex-start;
     }
   
     #grid_social {
-        margin-top: -600px;
+        margin-top: 150px;
         grid-template-columns: 40% 40%;
     }
 
@@ -614,23 +643,29 @@ footer img {
         flex-direction: column;
     }
 
+    #content_main_top img {
+        margin-top: 100px;
+    }
+
     .box_content .col_content {
-        width: 90%;
-        margin-left: 0px;
+        width: 100%;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     .box_content .col_content h1 {
-        padding-left: 10px;
+        margin-top: 100px;
     }
 
     .box_content .col_content h4 {
-        padding-left: 10px;
+        padding: 20px;
+        text-align: center;
     }
 
     #box_shadow {
-        margin: 30px 10px 10px 10px;
-        grid-template-columns: 25% 25% 25%;
-        width: 85%;
+        margin-top: 30px;
+        margin-left: 10px;
+        grid-template-columns: repeat(3, 25%);
     }
 
     #servicos_content {
@@ -639,6 +674,10 @@ footer img {
 
     #orcamento form {
         width: 90%;
+    }
+
+    #grid_social {
+        margin-top: 510px;
     }
 }
 
@@ -650,10 +689,8 @@ footer img {
     #grid_view {
         margin-top: 250px;
     }
-}
 
-@media (max-width: 500px){
     #grid_social {
-        margin-top: -550px;
+        margin-top: 540px;
     }
 }
